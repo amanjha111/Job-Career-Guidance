@@ -1,0 +1,43 @@
+database: careerguidance
+
+CREATE TABLE student_accounts (
+    email VARCHAR(50) UNIQUE,
+    name VARCHAR(255),
+    student_class INT,
+    password VARCHAR(255),
+    PRIMARY KEY (email)
+);
+
+CREATE TABLE student_data(
+    email VARCHAR(50) UNIQUE,
+    interest VARCHAR(255),
+    grades_math int(3),
+    grades_sci int(3),
+    grades_eng int(3),
+    grades_ss int(3),
+    grades_comp int(3),
+    PRIMARY KEY (email),
+    FOREIGN KEY (email) REFERENCES student_accounts(email)
+);
+
+CREATE TABLE quiz_scores (
+    quiz_number INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(50),
+    quiz_id VARCHAR(20),
+    scores_computer DECIMAL(5,2),
+    scores_civilservices DECIMAL(5,2),
+    scores_marketingsales DECIMAL(5,2),
+    scores_science DECIMAL(5,2),
+    scores_mathematics DECIMAL(5,2),
+    scores_socialscienceshumanities DECIMAL(5,2),
+    scores_performingfinearts DECIMAL(5,2),
+    scores_business DECIMAL(5,2),
+    scores_financeaccounting DECIMAL(5,2),
+    scores_healthcare DECIMAL(5,2),
+    scores_aptitude DECIMAL(5,2),
+    science INT,
+    commerce INT,
+    arts INT,
+    general1 INT,
+    general2 INT
+);
